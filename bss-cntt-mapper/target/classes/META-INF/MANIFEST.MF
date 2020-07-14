@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: bss-cntt-mapper
+Implementation-Version: 1.0-SNAPSHOT
+Built-By: 86178
+Implementation-Vendor-Id: com.sitech.cntt
+Build-Jdk: 1.8.0_65
+Implementation-URL: http://maven.apache.org/bss-cntt/bss-cntt-mapper
+Created-By: Maven Integration for Eclipse
+

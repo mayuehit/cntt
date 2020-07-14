@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.sitech.cntt</groupId>
+    <artifactId>bss-cntt</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>bss-cntt-client</artifactId>
+  <name>bss-cntt-client</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.sitech.ijcf</groupId>
+        <artifactId>ijcf-boot-starter</artifactId>
+    </dependency>
+	<dependency>
+        <groupId>com.sitech.ijcf</groupId>
+        <artifactId>ijcf-boot-starter-message6</artifactId>
+    </dependency>
+    <!-- 提供开发spring cloud服务功能 -->
+    <dependency>
+        <groupId>com.sitech.ijcf</groupId>
+        <artifactId>ijcf-boot-starter-springcloud</artifactId>
+    </dependency>
+	<dependency>
+  		<groupId>com.sitech.cntt</groupId>
+  		<artifactId>bss-cntt-metadata</artifactId>
+  		<version>1.0-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
+</project>

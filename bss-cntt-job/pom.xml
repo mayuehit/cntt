@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>com.sitech.cntt</groupId>
+    <artifactId>bss-cntt</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  
+  <artifactId>bss-cntt-job</artifactId>
+  <name>bss-cntt-job</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  
+  <dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-tomcat</artifactId>
+    </dependency>
+    <!-- 提供最核心功能，包括自动配置和JCF core模块功能，HTTp请求适配器、通用组件API接口定义、常用工具类 -->
+    <dependency>
+        <groupId>com.sitech.ijcf</groupId>
+        <artifactId>ijcf-boot-starter</artifactId>
+    </dependency>
+    <!-- 提供开发spring cloud服务功能 -->
+    <dependency>
+        <groupId>com.sitech.ijcf</groupId>
+        <artifactId>ijcf-boot-starter-springcloud</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>com.sitech.ijcf</groupId>
+        <artifactId>ijcf-boot-starter-mybatis</artifactId>
+    </dependency>
+    <!-- CRM6消息格式 -->
+      <dependency>
+          <groupId>com.sitech.ijcf</groupId>
+          <artifactId>ijcf-boot-starter-message6</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>com.sitech.ijcf</groupId>
+          <artifactId>ijcf-boot-starter-jackjson</artifactId>
+      </dependency>
+	<dependency>
+    	<groupId>org.codehaus.jackson</groupId>
+    	<artifactId>jackson-core-asl</artifactId>
+	</dependency>   
+	<dependency>
+        <groupId>com.oracle</groupId>
+        <artifactId>ojdbc6</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>io.springfox</groupId>
+        <artifactId>springfox-swagger2</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>io.springfox</groupId>
+        <artifactId>springfox-swagger-ui</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <scope>test</scope>
+    </dependency>
+    <!--fortress依赖-->
+    <dependency>
+        <groupId>com.sitech.fortress</groupId>
+        <artifactId>fortress-utils</artifactId>
+        <version>3.0.1</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sitech.fortress</groupId>
+        <artifactId>fortress-api</artifactId>
+        <version>3.0.1</version>
+    </dependency>
+    
+    
+	<!--日志-->
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+    </dependency>   
+    <!--JCF2 API桥接模块 -->
+    <dependency>
+        <groupId>com.sitech.ijcf</groupId>
+        <artifactId>ijcf-boot-starter-jcf2x-bridge</artifactId>
+    </dependency>
+    <dependency>
+  		<groupId>com.sitech.cntt</groupId>
+  		<artifactId>bss-cntt-mapper</artifactId>
+  		<version>1.0-SNAPSHOT</version>
+  	</dependency>
+  	
+  	<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-redis</artifactId>
+    </dependency>
+  	
+  </dependencies>
+  
+  <build>
+  	<finalName>${artifactId}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.dtd</include>
+                    <include>**/*.xsd</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-dependency-plugin</artifactId>
+			    <executions>
+			        <execution>
+			            <id>copy-dependencies</id>
+			            <phase>prepare-package</phase>
+			            <goals>
+			                <goal>copy-dependencies</goal>
+			            </goals>
+			            <configuration>
+			                <outputDirectory>${project.build.directory}/lib</outputDirectory>
+			                <overWriteReleases>false</overWriteReleases>
+			                <overWriteSnapshots>false</overWriteSnapshots>
+			                <overWriteIfNewer>true</overWriteIfNewer>
+			            </configuration>
+			        </execution>
+			    </executions>
+			</plugin>
+        </plugins>
+    </build>
+  
+</project>

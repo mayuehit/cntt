@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/jcfdemo-common/jcfdemo-common.iml" filepath="$PROJECT_DIR$/jcfdemo-common/jcfdemo-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jcfdemo-dependencies/jcfdemo-dependencies.iml" filepath="$PROJECT_DIR$/jcfdemo-dependencies/jcfdemo-dependencies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jcfdemo-exp1-app/jcfdemo-exp1-app.iml" filepath="$PROJECT_DIR$/jcfdemo-exp1-app/jcfdemo-exp1-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jcfdemo-project.iml" filepath="$PROJECT_DIR$/jcfdemo-project.iml" />
+    </modules>
+  </component>
+</project>

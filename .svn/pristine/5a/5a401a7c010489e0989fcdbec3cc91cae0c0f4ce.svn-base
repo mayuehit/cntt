@@ -1,0 +1,71 @@
+package com.sitech.cntt.service;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.sitech.cntt.common.PubReq;
+import com.sitech.cntt.inter.IIaServCnttInfoQuery;
+import com.sitech.cntt.metadata.domain.ConRel;
+import com.sitech.cntt.vo.GetIaServCnttInfoQueryReq;
+import com.sitech.cntt.vo.GetIaServCnttInfoQueryRsp;
+import com.sitech.ijcf.message6.dt.in.InDTO;
+import com.sitech.ijcf.message6.dt.out.OutDTO;
+import com.sitech.ijcf.message6.wrapper.support.OutDTOBuild;
+
+@Service("IaServCnttInfoQueryServiceSvc")
+@RequestMapping("/servCntt")
+public class IaServCnttInfoQuery implements IIaServCnttInfoQuery{
+	
+	@PostMapping("/getCnttInfo")
+	public OutDTO<GetIaServCnttInfoQueryRsp> getCnttInfo(@RequestBody InDTO<PubReq<GetIaServCnttInfoQueryReq>>inDTO){
+		GetIaServCnttInfoQueryReq req=Optional.ofNullable(inDTO)
+				.flatMap(mapper -> Optional.ofNullable(mapper.getBody()))
+				.flatMap(mapper -> Optional.ofNullable(mapper.getBusiInfo()))
+				.orElse(null);
+				GetIaServCnttInfoQueryRsp rsp = new GetIaServCnttInfoQueryRsp();
+		ConRel conRel = new ConRel();
+		conRel.setOpCode(1);
+		conRel.setOpName("操作名");
+		conRel.setOpTime(new Date(5555555));
+		conRel.setIdNo("主产品实例ID");
+		conRel.setLoginAccept("注册许可");
+		conRel.setPrice(60);
+		conRel.setLoginNo("工号");
+		conRel.setLoginAccept("注册许可");
+		conRel.setAssureCustId("担保人客户标识");
+		conRel.setPhoneNo("在客服中相当于受理号码");
+		conRel.setBillId("票号 发票或者免填单号");
+		conRel.setSubOrderId("子订单号");
+		conRel.setTotalFee(60);
+		
+		ConRel conRel2 = new ConRel();
+		conRel2.setOpCode(1);
+		conRel2.setOpName("操作名");
+		conRel2.setOpTime(new Date(5555555));
+		conRel2.setIdNo("主产品实例ID");
+		conRel2.setLoginAccept("注册许可");
+		conRel2.setPrice(60);
+		conRel2.setLoginNo("工号");
+		conRel2.setLoginAccept("注册许可");
+		conRel2.setAssureCustId("担保人客户标识");
+		conRel2.setPhoneNo("在客服中相当于受理号码");
+		conRel2.setBillId("票号 发票或者免填单号");
+		conRel2.setSubOrderId("子订单号");
+		conRel2.setTotalFee(60);
+		
+		rsp.setSize(2);
+		List<ConRel>conRelList = new ArrayList<>();
+		conRelList.add(conRel);
+		conRelList.add(conRel2);
+		rsp.setConRelList(conRelList);
+		
+		return OutDTOBuild.builder().returnCode("0").returnMsg("根据应用编码查询服务配置列表成功").build(rsp);
+	}
+}

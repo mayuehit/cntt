@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!--导入属性配置 -->
+	<!--<properties resource="generator.properties"></properties>-->
+	<classPathEntry location="D:\STS\sts-4.4.0.RELEASE\ojdbc14.jar"/>
+	<context id="my" targetRuntime="MyBatis3" defaultModelType="flat">
+		<commentGenerator>
+			<property name="suppressDate" value="true"/>
+			<property name="suppressAllComments" value="false"/>
+		</commentGenerator>
+
+		<!--oracle connectionURL格式：jdbc:oracle:thin:@localhost:1521:数据库名-->
+		<jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+							connectionURL="jdbc:oracle:thin:@172.18.238.230:1631:KMANADB"
+							userId="DBBASEADM"
+							password="dbbaseadm">
+		</jdbcConnection>
+	
+		<!--dto-->
+		<javaModelGenerator targetPackage="com.sitech.cntt.metadata.domain"
+							targetProject="bss-cntt-metadata/src/main/java">
+			<property name="enableSubPackages" value="true"/>
+			<property name="trimStrings" value="true"/>
+		</javaModelGenerator>
+
+		<!--Mapper.xml-->
+		<sqlMapGenerator targetPackage="mybatismapper"
+						 targetProject="bss-cntt-mapper/src/main/resources">
+			<property name="enableSubPackages" value="true"/>
+		</sqlMapGenerator>
+
+		<!--Mapper.java-->
+		<javaClientGenerator targetPackage="com.sitech.cntt.inter"
+							 targetProject="bss-cntt-mapper/src/main/java" type="XMLMAPPER">
+			<property name="enableSubPackages" value="true"/>
+
+		</javaClientGenerator>
+
+		<table tableName="FORTRESS_TEST" modelType="flat"
+			   enableCountByExample="false"
+			   enableUpdateByExample="false"
+			   enableDeleteByExample="false"
+			   enableSelectByExample="true"
+			   selectByExampleQueryId="false">
+		</table>
+
+	</context>
+</generatorConfiguration>
