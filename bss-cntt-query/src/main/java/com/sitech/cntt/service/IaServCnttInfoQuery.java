@@ -41,7 +41,7 @@ public class IaServCnttInfoQuery implements IIaServCnttInfoQuery{
 				GetIaServCnttInfoQueryRsp rsp = new GetIaServCnttInfoQueryRsp();
 				
 	/*	
-	 * 用原生ES进行查询 查询条件为号码+日期
+	 * 用原生ES进行查询 查询条件为号码+日期date
 	 * RangeQueryBuilder rangeQueryBuilder;
 	 * if(req.getQryType()==0){
 	 * 		rangeQueryBuilder = QueryBuilders.boolQuery()
